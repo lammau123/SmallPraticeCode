@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import small.code.pratice.array.ProcessQueries;
+
 @SpringBootApplication
 public class PraticeJavaApplication {
 
@@ -17,6 +19,7 @@ public class PraticeJavaApplication {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 			System.out.println("Spring boot console app.");
+			new ProcessQueries().processQueries(new int[] {3,1,2,1}, 5);
 		};
 	}
 
