@@ -7,6 +7,7 @@ package small.code.pratice.list;
  */
 class Skiplist1 {
 	final private static int MAX_LEVEL = 4;
+	
 	private static class Node {
 		private int data;
 		private Node []next;
