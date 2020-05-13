@@ -69,21 +69,19 @@ public class FloodFill {
 	}
 	
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-    	int[][] marked = new int[image.length][image[0].length];
         Deque<Point> queue = new ArrayDeque<>();
         queue.add(new Point(sr, sc));
-        marked[sr][sc] = 1;
         int filledColor = image[sr][sc];
+        if (filledColor == newColor) return image;
         while(!queue.isEmpty()) {
         	Point current = queue.pollFirst();
-        	image[current.sr][current.sc] = newColor;
-        	for(Point point: current.getNeighbor()) {
-        		if(isValid(point, image)) {
-            		if(image[point.sr][point.sc] == filledColor && marked[point.sr][point.sc] != 1) {
-            			queue.add(point);
-            			marked[point.sr][point.sc] = 1;
-            		} 
-            	}
+        	if(image[current.sr][current.sc] == filledColor) {
+	        	image[current.sr][current.sc] = newColor;
+	        	for(Point point: current.getNeighbor()) {
+	        		if(isValid(point, image)) {
+	            		queue.add(point);
+	            	}
+	        	}
         	}
         }
         return image;
