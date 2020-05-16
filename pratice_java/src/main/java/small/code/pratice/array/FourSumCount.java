@@ -1,6 +1,9 @@
 package small.code.pratice.array;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 4Sum II
@@ -30,42 +33,23 @@ import java.util.Arrays;
  */
 public class FourSumCount {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-    	Arrays.sort(A);
-    	Arrays.sort(B);
-    	Arrays.sort(C);
-    	Arrays.sort(D);
+    	Map<Integer, Integer> right = new HashMap<>();
+    	Map<Integer, Integer> left = new HashMap<>();
+    	for(int i = 0; i < A.length; i++) {
+    		for(int j = 0; j < B.length; j++) {
+    			Integer sumRight = A[i] + B[j];
+    			right.put(sumRight, right.getOrDefault(sumRight, 0) + 1);
+    			Integer sumLeft = -1*(C[i] + D[j]);
+    			left.put(sumLeft, left.getOrDefault(sumLeft, 0) + 1);
+    		}
+    	}
     	int count = 0;
-        for(int a: A) {
-        	for(int b: B) {
-        		int ab = a+b;
-        		for(int c: C) {
-        			int abc = ab+c;
-        			int first = 0, last = D.length-1;
-        			while(first<=last) {
-        				int mid = (last+first)/2;
-        				if(D[mid]*(-1) == abc) {
-        					count++;
-        					int tmp = mid+1;
-        					while(tmp <= last && D[tmp] == D[tmp-1]) {
-        						count++;
-        						tmp++;
-        					}
-        					tmp = mid-1;
-        					while(tmp >= 0 && D[tmp] == D[tmp+1]) {
-        						count++;
-        						tmp--;
-        					}
-        					break;
-        				} else if(D[mid] > abc*(-1)) {
-        					last = mid - 1;
-        				} else {
-        					first = mid + 1;
-        				}
-        			}
-        		}
-        	}
-        }
-        
-        return count;
+    	for(Integer key: right.keySet()) {
+    		if(left.containsKey(key)) {
+    			count += right.get(key)*left.get(key);
+    		}
+    	}
+    	
+    	return count;
     }
 }
