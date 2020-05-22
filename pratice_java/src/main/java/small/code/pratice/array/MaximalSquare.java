@@ -3,7 +3,8 @@ package small.code.pratice.array;
 /**
  * Maximal Square
  * 
- * Given a 2D binary matrix filled with 0's and 1's, find the largest square 
+ * Given a 2D binary matrix filled with 0's and 1's, find the largest 
+ * square 
  * containing only 1's and return its area.
  * 
  * Example:
