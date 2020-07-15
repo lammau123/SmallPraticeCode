@@ -27,7 +27,7 @@ import java.util.List;
  * ]
  *
  */
-public class LevelOrder {
+public class LevelOrderTest {
 	public static class TreeNode {
 	    int val;
 	    TreeNode left;
