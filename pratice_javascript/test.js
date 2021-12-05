@@ -30,17 +30,3 @@ function processData(input) {
 //processData("5\r\n1 4\r\n1 9\r\n3\r\n2 4\r\n3");
 //processData("4\r\n1 3\r\n1 65\r\n2 65\r\n3");
 //processData("3\r\n1 189076\r\n2 189076\r\n1 193865\r\n2 193865\r\n1 -419921\r\n1 429676\r\n3\r\n2 429676\r\n3\r\n1 21716\r\n1 551843\r\n1 950119\r\n1 63171\r\n3\r\n1 841804\r\n1 170054\r\n1 835419\r\n2 835419\r\n2 950119\r\n3\r\n1 258308\r\n1 -734231\r\n1 569347\r\n1 52941\r\n1 777770\r\n2 -734231\r\n1 355316\r\n3\r\n1 415025\r\n1 754479\r\n2 777770\r\n1 -744898\r\n2 551843\r\n1 509662\r\n3\r\n3765746\r\n3\r\n1 809282\r\n2 -744898\r\n3");
-
-let a = 3;
-console.log(a & (-a));
-a &= ~(-a);
-console.log(a);
-a &= ~(-a);
-console.log(a);
-console.log(a & (-a));
-a &= ~(-a);
-console.log(a);
-a &= ~(-a);
-console.log(a);
-
-
