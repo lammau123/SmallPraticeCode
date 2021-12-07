@@ -2,13 +2,14 @@
 const prompt = require('async-prompt');
 
 function quickFind(arr, p, q){
-    if(arr[p] === arr[q]) return;
-    for(let i = 0; i < arr.length; i++){
-        const t = arr[p];
+    let i = 0;
+    if(arr[p] === arr[q]) return i;
+    for(const t = arr[p]; i < arr.length; i++){
         if(arr[i] === t){
             arr[i] = arr[q];
         }
     }
+    return i;
 }
 
 async function quickFindProgram(){
@@ -17,8 +18,8 @@ async function quickFindProgram(){
         while(true){
             const p = await prompt('p: ');
             const q = await prompt('q: ');
-            quickFind(arr, p, q);
-            console.log(p, q, arr);
+            console.log("times: ", quickFind(arr, p, q));
+            console.log(`${p} -> ${q} : ${arr}`);
         }
     } catch(err){
         console.log(err);
