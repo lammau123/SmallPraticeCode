@@ -2,10 +2,12 @@
 const prompt = require('async-prompt');
 
 function quickUninon(arr, p, q){
-    let i, j;
-    for(i = p; i != arr[i]; i = arr[i]);
-    for(j = p; j != arr[j]; j = arr[i]);
-    arr[i] = arr[j];
+    let i, j, count = 0;
+    for(i = p; i != arr[i]; i = arr[i]) count++;
+    for(j = q; j != arr[j]; j = arr[j]) count++;
+    console.log("Test: ", i, j);
+    arr[i] = j;
+    return count;
 }
 
 async function quickUnionProgram(){
@@ -14,7 +16,7 @@ async function quickUnionProgram(){
         while(true){
             const p = await prompt('p: ');
             const q = await prompt('q: ');
-            quickUninon(arr, p, q);
+            console.log("times : ", quickUninon(arr, parseInt(p), parseInt(q)));
             console.log(p, q, arr);
         }
     } catch(err){
